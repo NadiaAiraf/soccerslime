@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Soccer Slime</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #1dd; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="1000" height="500"></canvas>
+
+<script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(240, 160, 40, Math.PI, Math.PI*2, false)
+  ctx.fillStyle = "#aa0251";
+  ctx.fill();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(260, 135, 6, 0, Math.PI*2, true)
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fill();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(260, 135, 3, 0, Math.PI*2, true)
+  ctx.fillStyle = "#000000";
+  ctx.fill();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(260,115,40, Math.PI*(0.35), Math.PI*(0.6),false)
+  ctx.strokeStyle = "rgba(255,255,255)";
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.moveTo(10,10);
+  ctx.lineTo(20,20);
+  ctx.lineTo(20,10);
+  ctx.lineTo(10,10);
+  ctx.closePath();
+</script>
+
+</body>
+</html>
