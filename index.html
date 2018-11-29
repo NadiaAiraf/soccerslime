@@ -19,30 +19,39 @@
   var paddleHeight = 10;
   var paddleWidth = 75;
   var paddleX = (canvas.width-paddleWidth)/2;
+  var paddleY = 0;
 
 
   var rightPressed = false;
   var leftPressed = false;
+  var upPressed = false;
+
   document.addEventListener("keydown", keyDownHandler, false);
   document.addEventListener("keyup", keyUpHandler, false);
 
   function keyDownHandler(e) {
-    if(e.keyCode == 39) {
-        rightPressed = true;
+    if(e.keyCode == 38) {
+      upPressed = true;
     }
-    else if(e.keyCode == 37) {
-        leftPressed = true;
+    if(e.keyCode == 37) {
+      leftPressed = true;
     }
-}
+    if (e.keyCode == 39) {
+      rightPressed = true;
+    }
+  }
 
-function keyUpHandler(e) {
-    if(e.keyCode == 39) {
-        rightPressed = false;
+  function keyUpHandler(e) {
+    if(e.keyCode == 38) {
+      upPressed = false;
     }
-    else if(e.keyCode == 37) {
-        leftPressed = false;
+    if(e.keyCode == 37) {
+      leftPressed = false;
     }
-}
+    if (e.keyCode == 39) {
+      rightPressed = false;
+    }
+  }
 
   function drawPaddle() {
     ctx.beginPath();
@@ -55,31 +64,31 @@ function keyUpHandler(e) {
 
   function drawSmiley() {
     ctx.beginPath();
-    ctx.arc(paddleX, canvas.height-10, 40, Math.PI, Math.PI*2, false)
+    ctx.arc(paddleX, canvas.height-paddleY -10, 40, Math.PI, Math.PI*2, false)
     ctx.fillStyle = "#aa0251";
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
-    ctx.arc(paddleX+20, canvas.height-10-25, 6, 0, Math.PI*2, true)
+    ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 6, 0, Math.PI*2, true)
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
-    ctx.arc(paddleX+20, canvas.height-10-25, 3, 0, Math.PI*2, true)
+    ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 3, 0, Math.PI*2, true)
     ctx.fillStyle = "#000000";
     ctx.fill();
     ctx.closePath();
     ctx.beginPath();
-    ctx.arc(paddleX+22, canvas.height-10-46,40, Math.PI*(0.35), Math.PI*(0.6),false)
+    ctx.arc(paddleX+22, canvas.height-paddleY-10-46,40, Math.PI*(0.35), Math.PI*(0.6),false)
     ctx.strokeStyle = "rgba(255,255,255)";
     ctx.lineWidth = 3;
     ctx.stroke();
     ctx.closePath();
     ctx.beginPath();
-    ctx.moveTo(10,10);
-    ctx.lineTo(20,20);
-    ctx.lineTo(20,10);
-    ctx.lineTo(10,10);
+    ctx.moveTo(paddleX+20, canvas.height-paddleY-10-25);
+    ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25);
+    ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25-10);
+    ctx.lineTo(paddleX+20, canvas.height-paddleY-10-25);
     ctx.fillStyle = "#000000";
     ctx.fill();
     ctx.closePath();
@@ -93,6 +102,12 @@ var ballRadius = 8;
     ctx.fillStyle = "#FFFF00";
     ctx.fill();
     ctx.closePath();
+  }
+
+  function jump() {
+    if (paddleY != 0) {
+      return 2
+    }
   }
 
   function draw() {
@@ -109,11 +124,14 @@ var ballRadius = 8;
         dy = -dy;
     }
 
-    if(rightPressed && paddleX < canvas.width-paddleWidth) {
-      paddleX += 3.5;
-    }
-    else if(leftPressed && paddleX > 0) {
+    if(upPressed) {
+      // if(paddleY == 0) {
+        paddleY += 2;
+      // }
+    } else if(leftPressed && paddleX > 0) {
       paddleX -= 3.5;
+    } else if (rightPressed && paddleX < canvas.width-paddleWidth) {
+      paddleX += 3.5;
     }
 
     y += dy
@@ -125,7 +143,7 @@ var ballRadius = 8;
   var y = canvas.height-30;
   var dx = 2
   var dy = -2
-  setInterval(draw,10);
+  setInterval(draw,5);
 
 </script>
 
