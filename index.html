@@ -11,10 +11,14 @@
 <body>
 
 <canvas id="myCanvas" width="1000" height="500"></canvas>
-
+<script src='src/game.js'></script>
+<script src='src/ball.js'></script>
 <script>
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
+  var ball = new Ball(ctx)
+  var game = new Game(ball)
+
 
   var paddleHeight = 10;
   var paddleWidth = 75;
