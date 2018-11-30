@@ -29,6 +29,11 @@ Ball.prototype.updateVelocity = function () {
 
 Ball.prototype.groundCollision = function() {
   this.yVelocity *= -0.8
+  this.xVelocity *= 0.8
+}
+
+Ball.prototype.wallCollision = function() {
+  this.xVelocity *= -0.9
 }
 
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {

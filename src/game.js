@@ -20,6 +20,9 @@ Game.prototype.checkForCollisions = function () {
   if (this.ball.yPosition > 600 && this.ball.yVelocity > 0) {
     this.ball.groundCollision();
   }
+  if ((this.ball.xPosition > 900 && this.ball.xVelocity > 0) || (this.ball.xPosition < 0 && this.ball.xVelocity < 0)) {
+    this.ball.wallCollision();
+  }
 };
 
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {

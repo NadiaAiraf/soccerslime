@@ -43,4 +43,12 @@ describe('Ball', () => {
     })
   })
 
+  describe('wallCollision', () => {
+    it('reverses the xVelocity', () => {
+      var initialVelocity = ball.xVelocity;
+      ball.wallCollision();
+      expect(ball.xVelocity).toEqual(-initialVelocity*0.9)
+    })
+  })
+
 });
