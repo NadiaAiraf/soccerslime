@@ -1,10 +1,10 @@
 const Ball = function Ball(ctx) {
   this.xPosition = 450;
   this.yPosition = 300;
-  this.xVelocity = 1;
+  this.xVelocity = 2;
   this.yVelocity = 1;
-  this.xAcceleration = 1;
-  this.yAcceleration = 1;
+  this.xAcceleration = 0;
+  this.yAcceleration = 0.1;
   this.ctx = ctx;
 }
 
@@ -26,6 +26,10 @@ Ball.prototype.updateVelocity = function () {
   this.xVelocity += this.xAcceleration;
   this.yVelocity += this.yAcceleration;
 };
+
+Ball.prototype.groundCollision = function() {
+  this.yVelocity *= -0.8
+}
 
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {
   module.exports = Ball;

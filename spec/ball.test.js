@@ -35,4 +35,12 @@ describe('Ball', () => {
     });
   });
 
+  describe('groundCollision', () => {
+    it('reverses and lowers the yVelocity', () => {
+      var initialVelocity = ball.yVelocity;
+      ball.groundCollision();
+      expect(ball.yVelocity).toEqual(-initialVelocity*0.8)
+    })
+  })
+
 });
