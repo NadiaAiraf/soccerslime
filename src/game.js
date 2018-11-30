@@ -6,7 +6,7 @@ const Game = function Game(ball) {
 }
 
 Game.prototype.runGame = function () {
-  this.ball.move(this.leftPressed, this.rightPressed, this.upPressed)
+  this.ball.move()
 };
 
 
