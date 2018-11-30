@@ -10,7 +10,7 @@ const Ball = function Ball(ctx) {
 
 Ball.prototype.drawBall = function () {
   this.ctx.beginPath();
-  this.ctx.arc(x, y, ballRadius, 0, Math.PI*2, true)
+  this.ctx.arc(this.xPosition, this.yPosition, 10, 0, Math.PI*2, true)
   this.ctx.fillStyle = "#FFFF00";
   this.ctx.fill();
   this.ctx.closePath
