@@ -18,13 +18,20 @@ describe('Ball', () => {
       expect(stubContext.fill).toHaveBeenCalledTimes(1);
     });
   });
-  
-  describe('drawBall', () => {
-    it('draws a ball on our canvas', () => {
-      ball.drawBall();
-      expect(stubContext.beginPath).toHaveBeenCalledTimes(1);
-      expect(stubContext.arc).toHaveBeenCalledTimes(1);
-      expect(stubContext.fill).toHaveBeenCalledTimes(1);
+
+  describe('move', () => {
+    it('changes the xPosition by the xVelocity ', () => {
+      var initialPosition = ball.xPosition;
+      var initialVelocity = ball.xVelocity;
+      ball.move();
+      expect(ball.xPosition).toEqual(initialPosition + initialVelocity);
+    });
+
+    it('changes the yPosition by the yVelocity ', () => {
+      var initialPosition = ball.yPosition;
+      var initialVelocity = ball.yVelocity;
+      ball.move();
+      expect(ball.yPosition).toEqual(initialPosition + initialVelocity);
     });
   });
 

@@ -17,9 +17,9 @@ Ball.prototype.drawBall = function () {
 };
 
 Ball.prototype.move = function () {
-  this.updateVelocity();
   this.xPosition += this.xVelocity;
   this.yPosition += this.yVelocity;
+  this.updateVelocity();
 };
 
 Ball.prototype.updateVelocity = function () {
