@@ -1,11 +1,20 @@
-const Ball = function Ball() {
-  this.xPosition = 450
-  this.yPosition = 300
-  this.xVelocity = 1
-  this.yVelocity = 1
-  this.xAcceleration = 1
-  this.yAcceleration = 1
+const Ball = function Ball(ctx) {
+  this.xPosition = 450;
+  this.yPosition = 300;
+  this.xVelocity = 1;
+  this.yVelocity = 1;
+  this.xAcceleration = 1;
+  this.yAcceleration = 1;
+  this.ctx = ctx;
 }
+
+Ball.prototype.drawBall = function () {
+  this.ctx.beginPath();
+  this.ctx.arc(x, y, ballRadius, 0, Math.PI*2, true)
+  this.ctx.fillStyle = "#FFFF00";
+  this.ctx.fill();
+  this.ctx.closePath
+};
 
 Ball.prototype.move = function () {
   this.updateVelocity();

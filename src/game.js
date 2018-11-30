@@ -7,8 +7,12 @@ const Game = function Game(ball) {
 
 Game.prototype.runGame = function () {
   this.ball.move()
+  this.drawThings();
 };
 
+Game.prototype.drawThings = function () {
+  this.ball.drawBall();
+};
 
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {
   module.exports = Game;
