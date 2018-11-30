@@ -5,7 +5,7 @@
     <title>Soccer Slime</title>
     <style>
     	* { padding: 0; margin: 0; }
-    	canvas { background: #1dd; display: block; margin: 0 auto; }
+    	canvas { background: #234; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
@@ -19,135 +19,137 @@
   var ball = new Ball(ctx)
   var game = new Game(ball)
 
-
-  var paddleHeight = 10;
-  var paddleWidth = 75;
-  var paddleX = (canvas.width-paddleWidth)/2;
-  var paddleY = 0;
+  setInterval(game.runGame, 10)
 
 
-  var rightPressed = false;
-  var leftPressed = false;
-  var upPressed = false;
-
-  document.addEventListener("keydown", keyDownHandler, false);
-  document.addEventListener("keyup", keyUpHandler, false);
-
-  function keyDownHandler(e) {
-    if(e.keyCode == 38) {
-      upPressed = true;
-    }
-    if(e.keyCode == 37) {
-      leftPressed = true;
-    }
-    if (e.keyCode == 39) {
-      rightPressed = true;
-    }
-  }
-
-  function keyUpHandler(e) {
-    if(e.keyCode == 38) {
-      upPressed = false;
-    }
-    if(e.keyCode == 37) {
-      leftPressed = false;
-    }
-    if (e.keyCode == 39) {
-      rightPressed = false;
-    }
-  }
-
-  function drawPaddle() {
-    ctx.beginPath();
-    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
-    ctx.fill();
-    ctx.closePath();
-  }
-
-
-  function drawSmiley() {
-    ctx.beginPath();
-    ctx.arc(paddleX, canvas.height-paddleY -10, 40, Math.PI, Math.PI*2, false)
-    ctx.fillStyle = "#aa0251";
-    ctx.fill();
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 6, 0, Math.PI*2, true)
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fill();
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 3, 0, Math.PI*2, true)
-    ctx.fillStyle = "#000000";
-    ctx.fill();
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.arc(paddleX+22, canvas.height-paddleY-10-46,40, Math.PI*(0.35), Math.PI*(0.6),false)
-    ctx.strokeStyle = "rgba(255,255,255)";
-    ctx.lineWidth = 3;
-    ctx.stroke();
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.moveTo(paddleX+20, canvas.height-paddleY-10-25);
-    ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25);
-    ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25-10);
-    ctx.lineTo(paddleX+20, canvas.height-paddleY-10-25);
-    ctx.fillStyle = "#000000";
-    ctx.fill();
-    ctx.closePath();
-  }
-
-var ballRadius = 8;
-
-  function drawBall(){
-    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 0, Math.PI*2, true)
-    ctx.fillStyle = "#FFFF00";
-    ctx.fill();
-    ctx.closePath();
-  }
-
-  function jump() {
-    if (paddleY != 0) {
-      return 2
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    drawSmiley();
-    drawBall();
-    // drawPaddle();
-
-    if(x + dx > canvas.width - ballRadius || x + dx < 0 + ballRadius) {
-    dx = -dx;
-    }
-
-    if(y + dy > canvas.height - ballRadius || y + dy < 0 + ballRadius) {
-        dy = -dy;
-    }
-
-    if(upPressed) {
-      // if(paddleY == 0) {
-        paddleY += 2;
-      // }
-    } else if(leftPressed && paddleX > 0) {
-      paddleX -= 3.5;
-    } else if (rightPressed && paddleX < canvas.width-paddleWidth) {
-      paddleX += 3.5;
-    }
-
-    y += dy
-    x += dx
-  }
-
-
-  var x = canvas.width/2;
-  var y = canvas.height-30;
-  var dx = 2
-  var dy = -2
-  setInterval(draw,5);
+//   var paddleHeight = 10;
+//   var paddleWidth = 75;
+//   var paddleX = (canvas.width-paddleWidth)/2;
+//   var paddleY = 0;
+//
+//
+//   var rightPressed = false;
+//   var leftPressed = false;
+//   var upPressed = false;
+//
+//   document.addEventListener("keydown", keyDownHandler, false);
+//   document.addEventListener("keyup", keyUpHandler, false);
+//
+//   function keyDownHandler(e) {
+//     if(e.keyCode == 38) {
+//       upPressed = true;
+//     }
+//     if(e.keyCode == 37) {
+//       leftPressed = true;
+//     }
+//     if (e.keyCode == 39) {
+//       rightPressed = true;
+//     }
+//   }
+//
+//   function keyUpHandler(e) {
+//     if(e.keyCode == 38) {
+//       upPressed = false;
+//     }
+//     if(e.keyCode == 37) {
+//       leftPressed = false;
+//     }
+//     if (e.keyCode == 39) {
+//       rightPressed = false;
+//     }
+//   }
+//
+//   function drawPaddle() {
+//     ctx.beginPath();
+//     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+//     ctx.fillStyle = "#0095DD";
+//     ctx.fill();
+//     ctx.closePath();
+//   }
+//
+//
+//   function drawSmiley() {
+//     ctx.beginPath();
+//     ctx.arc(paddleX, canvas.height-paddleY -10, 40, Math.PI, Math.PI*2, false)
+//     ctx.fillStyle = "#aa0251";
+//     ctx.fill();
+//     ctx.closePath();
+//     ctx.beginPath();
+//     ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 6, 0, Math.PI*2, true)
+//     ctx.fillStyle = "#FFFFFF";
+//     ctx.fill();
+//     ctx.closePath();
+//     ctx.beginPath();
+//     ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 3, 0, Math.PI*2, true)
+//     ctx.fillStyle = "#000000";
+//     ctx.fill();
+//     ctx.closePath();
+//     ctx.beginPath();
+//     ctx.arc(paddleX+22, canvas.height-paddleY-10-46,40, Math.PI*(0.35), Math.PI*(0.6),false)
+//     ctx.strokeStyle = "rgba(255,255,255)";
+//     ctx.lineWidth = 3;
+//     ctx.stroke();
+//     ctx.closePath();
+//     ctx.beginPath();
+//     ctx.moveTo(paddleX+20, canvas.height-paddleY-10-25);
+//     ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25);
+//     ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25-10);
+//     ctx.lineTo(paddleX+20, canvas.height-paddleY-10-25);
+//     ctx.fillStyle = "#000000";
+//     ctx.fill();
+//     ctx.closePath();
+//   }
+//
+// var ballRadius = 8;
+//
+//   function drawBall(){
+//     ctx.beginPath();
+//     ctx.arc(x, y, ballRadius, 0, Math.PI*2, true)
+//     ctx.fillStyle = "#FFFF00";
+//     ctx.fill();
+//     ctx.closePath();
+//   }
+//
+//   function jump() {
+//     if (paddleY != 0) {
+//       return 2
+//     }
+//   }
+//
+//   function draw() {
+//     ctx.clearRect(0,0,canvas.width,canvas.height)
+//     drawSmiley();
+//     drawBall();
+//     // drawPaddle();
+//
+//     if(x + dx > canvas.width - ballRadius || x + dx < 0 + ballRadius) {
+//     dx = -dx;
+//     }
+//
+//     if(y + dy > canvas.height - ballRadius || y + dy < 0 + ballRadius) {
+//         dy = -dy;
+//     }
+//
+//     if(upPressed) {
+//       // if(paddleY == 0) {
+//         paddleY += 2;
+//       // }
+//     } else if(leftPressed && paddleX > 0) {
+//       paddleX -= 3.5;
+//     } else if (rightPressed && paddleX < canvas.width-paddleWidth) {
+//       paddleX += 3.5;
+//     }
+//
+//     y += dy
+//     x += dx
+//   }
+//
+//
+//   var x = canvas.width/2;
+//   var y = canvas.height-30;
+//   var dx = 2
+//   var dy = -2
+//   setInterval(draw,5);
 
 </script>
 

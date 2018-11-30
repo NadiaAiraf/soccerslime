@@ -3,11 +3,12 @@ const Game = function Game(ball) {
   this.leftPressed = false;
   this.rightPressed = false;
   this.upPressed = false;
+  that = this;
 }
 
 Game.prototype.runGame = function () {
   this.ball.move()
-  this.drawThings();
+  that.drawThings();
 };
 
 Game.prototype.drawThings = function () {
