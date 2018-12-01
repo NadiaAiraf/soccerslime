@@ -1,4 +1,4 @@
-const Game = function Game(ball) {
+const Game = function Game(ball, canvas) {
   this.ball = ball
   this.leftPressed = false;
   this.rightPressed = false;
