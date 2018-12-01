@@ -2,7 +2,7 @@ const Ball = function Ball(ctx) {
   this.xPosition = 450;
   this.yPosition = 300;
   this.xVelocity = 2;
-  this.yVelocity = 1;
+  this.yVelocity = 1.5;
   this.xAcceleration = 0;
   this.yAcceleration = 0.1;
   this.ctx = ctx;
@@ -33,7 +33,6 @@ Ball.prototype.groundCollision = function() {
   if (this.yVelocity < 0.9 && this.yVelocity > -0.9) {
     this.yVelocity = 0;
   }
-  console.log(this.yVelocity);
 }
 
 Ball.prototype.wallCollision = function() {
