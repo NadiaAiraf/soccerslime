@@ -8,7 +8,10 @@ describe('Game', () => {
       groundCollision: jest.fn(),
       wallCollision: jest.fn(),
     }
-    game = new Game(stubBall);
+    stubCanvas = {
+      clearCanvas: jest.fn(),
+    }
+    game = new Game(stubBall, stubCanvas);
   })
 
   describe('runGame', () => {

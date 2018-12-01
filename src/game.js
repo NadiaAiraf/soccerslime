@@ -1,5 +1,6 @@
 const Game = function Game(ball, canvas) {
   this.ball = ball
+  this.canvas = canvas
   this.leftPressed = false;
   this.rightPressed = false;
   this.upPressed = false;
@@ -13,14 +14,15 @@ Game.prototype.runGame = function () {
 };
 
 Game.prototype.drawThings = function () {
+  this.canvas.clearCanvas();
   this.ball.drawBall();
 };
 
 Game.prototype.checkForCollisions = function () {
-  if (this.ball.yPosition > 600 && this.ball.yVelocity > 0) {
+  if (this.ball.yPosition > 592 && this.ball.yVelocity > 0) {
     this.ball.groundCollision();
   }
-  if ((this.ball.xPosition > 900 && this.ball.xVelocity > 0) || (this.ball.xPosition < 0 && this.ball.xVelocity < 0)) {
+  if ((this.ball.xPosition > 892 && this.ball.xVelocity > 0) || (this.ball.xPosition < 8 && this.ball.xVelocity < 0)) {
     this.ball.wallCollision();
   }
 };

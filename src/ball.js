@@ -30,6 +30,10 @@ Ball.prototype.updateVelocity = function () {
 Ball.prototype.groundCollision = function() {
   this.yVelocity *= -0.8
   this.xVelocity *= 0.8
+  if (this.yVelocity < 0.9 && this.yVelocity > -0.9) {
+    this.yVelocity = 0;
+  }
+  console.log(this.yVelocity);
 }
 
 Ball.prototype.wallCollision = function() {
