@@ -50,4 +50,24 @@ describe('Game', () => {
     })
   })
 
+  describe('isSmileyCollision', () => {
+    it('returns true if a ball is within range of the paddle', () => {
+      game.ball.xPosition = 400
+      game.ball.yPosition = 200
+      game.smiley.xPosition = 410
+      game.smiley.yPosition = 208
+      game.checkForCollisions();
+      expect(stubBall.groundCollision).toHaveBeenCalledTimes(1)
+      expect(game.smileyCollision()).toEqual(true)
+    })
+
+    it('returns false if a ball is not within range of the paddle', () => {
+      game.ball.xPosition = 200
+      game.ball.yPosition = 200
+      game.smiley.xPosition = 410
+      game.smiley.yPosition = 208
+      expect(game.smileyCollision()).toEqual(false)
+    })
+  })
+
 })

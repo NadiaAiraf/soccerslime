@@ -57,4 +57,14 @@ describe('Ball', () => {
     })
   })
 
+  describe('smileyCollision', () => {
+    it('takes 2 parameters and makes thme the new x/y velocities', () => {
+      yVel = 2;
+      xVel = 3;
+      ball.smileyCollision(xVel, yVel);
+      expect(ball.yVelocity).toEqual(2)
+      expect(ball.xVelocity).toEqual(3)
+    })
+  })
+
 });

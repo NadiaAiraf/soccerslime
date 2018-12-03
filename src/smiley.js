@@ -1,6 +1,6 @@
 const Smiley = function Smiley(ctx) {
   this.ctx = ctx;
-  this.xPosition = 450;
+  this.xPosition = 430;
   this.yPosition = 590;
   this.xVelocity = 1;
   this.yVelocity = 1;

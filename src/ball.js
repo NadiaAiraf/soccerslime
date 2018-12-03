@@ -39,6 +39,11 @@ Ball.prototype.wallCollision = function() {
   this.xVelocity *= -0.9
 }
 
+Ball.prototype.smileyCollision = function (xVelocity, yVelocity) {
+  this.xVelocity = xVelocity;
+  this.yVelocity = yVelocity;
+};
+
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {
   module.exports = Ball;
 }
