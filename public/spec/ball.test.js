@@ -43,7 +43,7 @@ describe('Ball', () => {
     })
 
     it('stops the ball if velocity goes too lower', () => {
-      ball.yVelocity = 0.5
+      ball.yVelocity = 0.05
       ball.groundCollision();
       expect(ball.yVelocity).toEqual(0)
     })

@@ -7,6 +7,7 @@ describe('Game', () => {
       drawBall: jest.fn(),
       groundCollision: jest.fn(),
       wallCollision: jest.fn(),
+      smileyCollision: jest.fn(),
     }
     stubCanvas = {
       clearCanvas: jest.fn(),
@@ -57,7 +58,7 @@ describe('Game', () => {
       game.smiley.xPosition = 410
       game.smiley.yPosition = 208
       game.checkForCollisions();
-      expect(stubBall.groundCollision).toHaveBeenCalledTimes(1)
+      expect(stubBall.smileyCollision).toHaveBeenCalledTimes(1)
       expect(game.smileyCollision()).toEqual(true)
     })
 
