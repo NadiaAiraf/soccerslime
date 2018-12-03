@@ -1,7 +1,7 @@
 const Ball = function Ball(ctx) {
   this.xPosition = 450;
   this.yPosition = 300;
-  this.xVelocity = 2;
+  this.xVelocity = 0;
   this.yVelocity = 1.5;
   this.xAcceleration = 0;
   this.yAcceleration = 0.1;

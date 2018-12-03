@@ -1,6 +1,7 @@
-const Game = function Game(ball, canvas) {
+const Game = function Game(ball, canvas, smiley) {
   this.ball = ball
   this.canvas = canvas
+  this.smiley = smiley
   this.leftPressed = false;
   this.rightPressed = false;
   this.upPressed = false;
@@ -16,10 +17,11 @@ Game.prototype.runGame = function () {
 Game.prototype.drawThings = function () {
   this.canvas.clearCanvas();
   this.ball.drawBall();
+  this.smiley.drawSmiley();
 };
 
 Game.prototype.checkForCollisions = function () {
-  if (this.ball.yPosition > 592 && this.ball.yVelocity > 0) {
+  if (this.ball.yPosition > 582 && this.ball.yVelocity > 0) {
     this.ball.groundCollision();
   }
   if ((this.ball.xPosition > 892 && this.ball.xVelocity > 0) || (this.ball.xPosition < 8 && this.ball.xVelocity < 0)) {

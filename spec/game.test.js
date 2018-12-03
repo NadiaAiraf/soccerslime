@@ -11,7 +11,10 @@ describe('Game', () => {
     stubCanvas = {
       clearCanvas: jest.fn(),
     }
-    game = new Game(stubBall, stubCanvas);
+    stubSmiley = {
+      drawSmiley: jest.fn(),
+    }
+    game = new Game(stubBall, stubCanvas, stubSmiley);
   })
 
   describe('runGame', () => {

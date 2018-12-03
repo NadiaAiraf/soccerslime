@@ -14,12 +14,14 @@
 <script src='src/game.js'></script>
 <script src='src/canvas.js'></script>
 <script src='src/ball.js'></script>
+<script src='src/smiley.js'></script>
 <script>
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
   var ball = new Ball(ctx);
   var canvas = new Canvas(ctx);
-  var game = new Game(ball, canvas);
+  var smiley = new Smiley(ctx);
+  var game = new Game(ball, canvas, smiley);
 
   setInterval(game.runGame, 10)
 
@@ -70,37 +72,6 @@
 //   }
 //
 //
-//   function drawSmiley() {
-//     ctx.beginPath();
-//     ctx.arc(paddleX, canvas.height-paddleY -10, 40, Math.PI, Math.PI*2, false)
-//     ctx.fillStyle = "#aa0251";
-//     ctx.fill();
-//     ctx.closePath();
-//     ctx.beginPath();
-//     ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 6, 0, Math.PI*2, true)
-//     ctx.fillStyle = "#FFFFFF";
-//     ctx.fill();
-//     ctx.closePath();
-//     ctx.beginPath();
-//     ctx.arc(paddleX+20, canvas.height-paddleY-10-25, 3, 0, Math.PI*2, true)
-//     ctx.fillStyle = "#000000";
-//     ctx.fill();
-//     ctx.closePath();
-//     ctx.beginPath();
-//     ctx.arc(paddleX+22, canvas.height-paddleY-10-46,40, Math.PI*(0.35), Math.PI*(0.6),false)
-//     ctx.strokeStyle = "rgba(255,255,255)";
-//     ctx.lineWidth = 3;
-//     ctx.stroke();
-//     ctx.closePath();
-//     ctx.beginPath();
-//     ctx.moveTo(paddleX+20, canvas.height-paddleY-10-25);
-//     ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25);
-//     ctx.lineTo(paddleX+10, canvas.height-paddleY-10-25-10);
-//     ctx.lineTo(paddleX+20, canvas.height-paddleY-10-25);
-//     ctx.fillStyle = "#000000";
-//     ctx.fill();
-//     ctx.closePath();
-//   }
 //
 // var ballRadius = 8;
 //

@@ -4,6 +4,10 @@ describe('Canvas', () => {
   beforeEach(() => {
     stubContext = {
       clearRect: jest.fn(),
+      beginPath: jest.fn(),
+      rect: jest.fn(),
+      fill: jest.fn(),
+      closePath: jest.fn(),
     }
     canvas = new Canvas(stubContext)
   })
