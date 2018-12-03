@@ -11,6 +11,7 @@ const Game = function Game(ball, canvas, smiley) {
 Game.prototype.runGame = function () {
   that.checkForCollisions();
   this.ball.move()
+  this.smiley.movePaddle();
   that.drawThings();
 };
 
@@ -44,6 +45,24 @@ Game.prototype.smileyCollision = function () {
     return true
   } else {
     return false
+  }
+};
+
+Game.prototype.keyDownHandler = function (e) {
+  if (e.keyCode == 65) {
+    that.smiley.goLeft();
+  }
+  if (e.keyCode == 68) {
+    that.smiley.goRight();
+  }
+};
+
+Game.prototype.keyUpHandler = function (e) {
+  if (e.keyCode == 65) {
+    that.smiley.stopLeft();
+  }
+  if (e.keyCode == 68) {
+    that.smiley.stopRight();
   }
 };
 

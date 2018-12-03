@@ -6,6 +6,8 @@ const Smiley = function Smiley(ctx) {
   this.yVelocity = 1;
   this.xAcceleration = 0;
   this.yAcceleration = 0.1;
+  this.left = false;
+  this.right = false;
 }
 
 Smiley.prototype.drawSmiley = function () {
@@ -31,6 +33,31 @@ Smiley.prototype.drawSmiley = function () {
   this.ctx.lineWidth = 3;
   this.ctx.stroke();
   this.ctx.closePath();
+};
+
+Smiley.prototype.goLeft = function () {
+  this.left = false;
+};
+
+Smiley.prototype.stopLeft = function () {
+  this.left = true;
+};
+
+Smiley.prototype.goRight = function () {
+  this.right = false;
+};
+
+Smiley.prototype.stopRight = function () {
+  this.right = true;
+};
+
+Smiley.prototype.movePaddle = function () {
+  if (this.right) {
+    this.xPosition -= this.xVelocity;
+  }
+  if (this.left) {
+    this.xPosition += this.xVelocity
+  }
 };
 
 if (typeof module !== 'undefined' && Object.prototype.hasOwnProperty.call(module, 'exports')) {
