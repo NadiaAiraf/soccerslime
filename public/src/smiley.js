@@ -1,6 +1,6 @@
 const Smiley = function Smiley(ctx) {
   this.ctx = ctx;
-  this.xPosition = 430;
+  this.xPosition = 450;
   this.yPosition = 590;
   this.xVelocity = 1;
   this.yVelocity = 1;
@@ -14,6 +14,7 @@ Smiley.prototype.drawSmiley = function () {
   this.ctx.fillStyle = "#aa0251";
   this.ctx.fill();
   this.ctx.closePath();
+
   this.ctx.beginPath();
   this.ctx.arc(this.xPosition+20, this.yPosition-25, 6, 0, Math.PI*2, true)
   this.ctx.fillStyle = "#FFFFFF";

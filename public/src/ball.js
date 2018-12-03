@@ -6,6 +6,7 @@ const Ball = function Ball(ctx) {
   this.xAcceleration = 0;
   this.yAcceleration = 0.1;
   this.ctx = ctx;
+  this.hit = true;
 }
 
 Ball.prototype.drawBall = function () {

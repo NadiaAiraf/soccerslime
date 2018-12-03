@@ -28,13 +28,24 @@ Game.prototype.checkForCollisions = function () {
     this.ball.wallCollision();
   }
   if (this.smileyCollision()) {
-    this.ball.groundCollision();
+    if (that.ball.xVelocity = 0) {
+      that.ball.xVelocity = 0.001
+    }
+    balVelMagnitude = Math.sqrt(this.ball.xVelocity * this.ball.xVelocity + this.ball.yVelocity * this.ball.yVelocity) * 0.8
+    console.log('ball magnitude: ' + balVelMagnitude)
+    smileyGrad = (that.ball.yPosition - that.smiley.yPosition)/(that.ball.xPosition - that.smiley.xPosition)
+    console.log('smiley grad: ' + smileyGrad);
+    collisionAngle = Math.atan(smileyGrad)
+    newXVelocity = -(-(Math.cos(2*collisionAngle)*that.ball.xVelocity) + (Math.sin(2*collisionAngle)*that.ball.yVelocity))
+    newYVelocity = (Math.sin(2*collisionAngle)*that.ball.xVelocity) + (Math.cos(2*collisionAngle)*that.ball.yVelocity)
+    this.ball.smileyCollision(newXVelocity,newYVelocity);
   }
 };
 
 Game.prototype.smileyCollision = function () {
   BallPosition = Math.sqrt(Math.pow(that.ball.xPosition - that.smiley.xPosition,2)+Math.pow(that.ball.yPosition - that.smiley.yPosition,2))
-  if (BallPosition < 48) {
+  if (BallPosition < 48 && that.ball.hit) {
+    that.ball.hit = false;
     return true
   } else {
     return false
