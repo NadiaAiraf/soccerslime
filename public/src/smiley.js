@@ -36,27 +36,27 @@ Smiley.prototype.drawSmiley = function () {
 };
 
 Smiley.prototype.goLeft = function () {
-  this.left = false;
-};
-
-Smiley.prototype.stopLeft = function () {
   this.left = true;
 };
 
+Smiley.prototype.stopLeft = function () {
+  this.left = false;
+};
+
 Smiley.prototype.goRight = function () {
-  this.right = false;
+  this.right = true;
 };
 
 Smiley.prototype.stopRight = function () {
-  this.right = true;
+  this.right = false;
 };
 
 Smiley.prototype.movePaddle = function () {
   if (this.right) {
-    this.xPosition -= this.xVelocity;
+    this.xPosition += this.xVelocity;
   }
   if (this.left) {
-    this.xPosition += this.xVelocity
+    this.xPosition -= this.xVelocity
   }
 };
 
