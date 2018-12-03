@@ -1,11 +1,29 @@
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "node app.js"
   },
   "dependencies": {
     "ejs": "^1.0.0",
     "express": "^4.6.1"
   },
-  "name": "node-ejs",
-  "main": "server.js"
+  "name": "soccerslime",
+  "main": "server.js",
+  "description": "play a game of slime",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NadiaAiraf/soccerslime.git"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.6.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NadiaAiraf/soccerslime/issues"
+  },
+  "homepage": "https://github.com/NadiaAiraf/soccerslime#readme"
 }
