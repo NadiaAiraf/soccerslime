@@ -39,8 +39,12 @@ Game.prototype.checkForCollisions = function () {
 };
 
 Game.prototype.smileyCollision = function () {
+  console.log(that.ball.hit);
   BallPosition = Math.sqrt(Math.pow(that.ball.xPosition - that.smiley.xPosition,2)+Math.pow(that.ball.yPosition - that.smiley.yPosition,2))
-  if (BallPosition < 48) {
+  if (BallPosition > 56 && !that.ball.hit) {
+    that.ball.hit = true;
+  }
+  if (BallPosition < 48 && that.ball.hit) {
     that.ball.hit = false;
     return true
   } else {
